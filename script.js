@@ -5,13 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 获取 avatarFrame1 和 avatarFrame2 元素
     const avatarFrame1 = document.getElementById('avatarFrame1');
-    const avatarFrame2 = document.getElementById('avatarFrame2');
+
 
     // 定义头像挂件的图片路径
     const avatarFrames = {
-        'avatarFrame1': './assets/avatarFrame1.PNG',
-        'avatarFrame2': './assets/avatarFrame2.PNG',
-        'avatarFrame3': './assets/avatarFrame3.PNG',
+        'avatarFrame1': './assets/avatarFrame1.PNG'
     };
 
     // 当前选中的头像挂件
@@ -35,15 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 添加选中效果
         avatarFrame1.classList.remove('selected');
-        avatarFrame2.classList.remove('selected');
-        avatarFrame3.classList.remove('selected'); // 确保移除所有选中效果
         document.getElementById(frameId).classList.add('selected');
     }
 
     // 添加点击事件监听器
     avatarFrame1.addEventListener('click', () => switchAvatarFrame('avatarFrame1'));
-    avatarFrame2.addEventListener('click', () => switchAvatarFrame('avatarFrame2'));
-    avatarFrame3.addEventListener('click', () => switchAvatarFrame('avatarFrame3'));
 
     // 初始化时加载默认头像挂件
     loadAndDrawAvatarFrame(currentAvatarFrame);
@@ -51,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 启用图像平滑处理
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
-    console.log(avatarFrame3);
     // Load default avatar frame with error handling
     const avatarFrame = new Image();
     avatarFrame.src = './assets/avatarFrame1.PNG';
