@@ -3,17 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('avatarCanvas');
     const ctx = canvas.getContext('2d');
 
-    // 获取 avatarFrame1 和 avatarFrame2 元素
-    const avatarFrame1 = document.getElementById('avatarFrame1');
 
-
-    // 定义头像挂件的图片路径
-    const avatarFrames = {
-        'avatarFrame1': './assets/avatarFrame1.PNG'
-    };
-
-    // 当前选中的头像挂件
-    let currentAvatarFrame = 'avatarFrame1';
 
     // 加载并绘制头像挂件
     function loadAndDrawAvatarFrame(frameId) {
@@ -30,14 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentAvatarFrame = frameId;
         loadAndDrawAvatarFrame(frameId);
         drawProfileImage(); // 重新绘制头像和框架
-
-        // 添加选中效果
-        avatarFrame1.classList.remove('selected');
-        document.getElementById(frameId).classList.add('selected');
     }
-
-    // 添加点击事件监听器
-    avatarFrame1.addEventListener('click', () => switchAvatarFrame('avatarFrame1'));
+    
 
     // 初始化时加载默认头像挂件
     loadAndDrawAvatarFrame(currentAvatarFrame);
@@ -316,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
         link.download = filename;
+        console.log(link);
         link.click();
     }
 
