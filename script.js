@@ -3,8 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('avatarCanvas');
     const ctx = canvas.getContext('2d');
 
+    const avatarFrames = {
+        'avatarFrame1': './assets/avatarFrame1.PNG'
+    };
 
-
+    let currentAvatarFrame =  'avatarFrame1';
     // 加载并绘制头像挂件
     function loadAndDrawAvatarFrame(frameId) {
         const img = new Image();
